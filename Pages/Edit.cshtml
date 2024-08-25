@@ -1,0 +1,21 @@
+@page "{id:int}"
+@model TaskManagementWebApp.Pages.EditModel
+
+<h2>Edit Task</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Task.Name" class="control-label">Name</label>
+        <input asp-for="Task.Name" class="form-control" />
+        <span asp-validation-for="Task.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Task.Description" class="control-label">Description</label>
+        <textarea asp-for="Task.Description" class="form-control"></textarea>
+        <span asp-validation-for="Task.Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Page("/Index")'">Cancel</button>
+    </div>
+</form>

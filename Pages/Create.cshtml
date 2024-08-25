@@ -1,0 +1,50 @@
+@page
+@model TaskManagementWebApp.Pages.Tasks.CreateModel
+@{
+ViewData["Title"] = "Create Task";
+}
+<style>
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+
+    .btn-create {
+        background-color: #28a745; /* Green background */
+        color: white;              /* White text */
+    }
+
+    .btn-create:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+
+    .btn-cancel {
+        background-color: #dc3545; /* Red background */
+        color: white;              /* White text */
+    }
+
+    .btn-cancel:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }
+</style>
+
+<h1 xmlns="http://www.w3.org/1999/html">Create Task</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <!-- Add a div with margin-top to create space -->
+    <div style="margin-top: 20px;">
+        <button type="submit" class="btn btn-create">Create Task</button>
+        <button type="button" class="btn btn-cancel" onclick="location.href='/'">Cancel</button>
+    </div>
+</form>

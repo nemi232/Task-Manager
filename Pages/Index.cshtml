@@ -1,0 +1,49 @@
+﻿@page
+@model TaskManagementWebApp.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Task List";
+}
+
+<h1>Task List</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model.Tasks != null && Model.Tasks.Count > 0)
+    {
+        foreach (var task in Model.Tasks)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.Description</td>
+                <td>
+                    <form method="get">
+                        <!-- Edit Button -->
+                        <button type="submit" class="btn btn-primary" formaction="@Url.Page("/Edit", new { id = task.Id })">Edit</button>
+                    </form>
+
+                    <!-- Delete Button -->
+                    <form method="get">
+                        <button type="submit" class="btn btn-danger" formaction="@Url.Page("/Delete", new { id = task.Id })">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="3">No tasks available</td>
+        </tr>
+    }
+    </tbody>
+</table>
+<button type="button" onclick="location.href='/Create'">Create New Task</button>

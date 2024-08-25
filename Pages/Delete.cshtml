@@ -1,0 +1,16 @@
+@page "{id:int}"
+@model TaskManagementWebApp.Pages.DeleteModel
+
+<h2>Delete Task</h2>
+
+<h3>Are you sure you want to delete this task?</h3>
+<div>
+    <h4>@Model.Task.Name</h4>
+    <p>@Model.Task.Description</p>
+</div>
+
+<form method="post">
+    <input type="hidden" asp-for="Task.Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Page("/Index")'">Cancel</button>
+</form>
